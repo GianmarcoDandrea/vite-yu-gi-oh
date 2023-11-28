@@ -71,6 +71,7 @@ main {
     }
     .card-list {
         background-color: white;
+        border-radius: 10px;
     }
 
     .container {
