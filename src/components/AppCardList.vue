@@ -37,8 +37,10 @@ export default {
 
 <template>
     <main>
-        <div class="container py-4">
+        <div class="container">
             <AppSearch @perfomSearch="searchCard"/>
+        </div>
+        <div class="container card-list py-4">
             <AppLoader class="w-100" v-if="store.loading" />
     
             <div class="row row-cols-5 g-3" v-else>
@@ -66,10 +68,11 @@ export default {
 main {
     padding: 3rem 0;
     background-color: #d48f38;
-
+    .card-list {
+        background-color: white;
+    }
 
     .container {
-        background-color: white;
         .row {
             justify-content: space-between;
 

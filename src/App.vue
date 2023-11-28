@@ -14,12 +14,9 @@ export default {
 
   created() {
     this.store.loading = true;
-    axios
-      .get(this.store.apiLink)
-      
-      .then((resp) => {
-        this.store.cards = resp.data.data;
-        this.store.loading = false;
+    axios.get(this.store.apiLink).then((resp) => {
+      this.store.cards = resp.data.data;
+      this.store.loading = false;
       console.log(resp.data.data)
     });
   },
@@ -31,6 +28,7 @@ export default {
 
 <template>
   <AppHeader />
+
   <AppCardList />
 </template>
 
