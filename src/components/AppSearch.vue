@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <select class="form-select my-3 w-25" v-model="store.searchChoice" @change="$emit('perfomSearch')">
+  <select class="form-select w-25" v-model="store.searchChoice" @change="$emit('perfomSearch')">
     <option value="" disabled>Seleziona Un Archetipo</option>
     <option value="Alien" selected>Alien</option>
     <option value="Ally of Justice">Ally of Justice</option>

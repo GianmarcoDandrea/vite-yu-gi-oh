@@ -11,7 +11,7 @@ export default {
 
 <template>
   <div class="wrapper">
-    <p>Found {{ store.cards.length }} cards</p>
+    <p>Trovato {{ store.cards.length }} carte</p>
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
     padding: 1.5rem;
     background-color: $secondary_bg_color;
     color: $secondary_text_color;
+    border-radius: 10px;
     
     p {
         padding: 0 1rem;

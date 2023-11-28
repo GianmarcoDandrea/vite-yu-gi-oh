@@ -17,18 +17,16 @@ export default {
 
   methods: {
     searchCard() {
-
-
         axios
         .get(this.store.apiLinkSearch, {
             params: {
-                archetype:this.store.searchChoice
+                archetype:this.store.searchChoice,
             }
         })
         .then((resp)=> {
             this.store.cards = [];
             console.log(resp.data.data);
-            this.store.cards = resp.data.data
+            this.store.cards = resp.data.data;
         })
     }
   },
@@ -69,7 +67,7 @@ main {
     padding: 0 0 3rem;
     background-color: #d48f38;
     .select {
-        padding: 0.3rem 0;
+        padding: 1.5rem 0;
     }
     .card-list {
         background-color: white;
@@ -78,7 +76,7 @@ main {
     .container {
         .row {
             justify-content: space-between;
-
+            align-items: stretch;
             margin-top: 0;
             margin-right: 0;
             margin-left: 0;
