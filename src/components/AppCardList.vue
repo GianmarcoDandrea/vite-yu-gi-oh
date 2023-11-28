@@ -3,6 +3,8 @@ import { store } from "../store";
 import AppCard from "./AppCard.vue";
 import AppLoader from "./AppLoader.vue";
 import AppCounter from './AppCounter.vue'
+import AppSearch from "./AppSearch.vue";
+import axios from "axios";
 
 export default {
   data() {
@@ -10,28 +12,45 @@ export default {
       store,
     };
   },
-  components: { AppCard, AppLoader, AppCounter},
+  components: { AppCard, AppLoader, AppCounter, AppSearch},
+
+
+  methods: {
+    searchCard() {
+
+
+        axios
+        .get(this.store.apiLinkSearch, {
+            params: {
+                archetype:this.store.searchChoice
+            }
+        })
+        .then((resp)=> {
+            this.store.cards = [];
+            console.log(resp.data.data);
+            this.store.cards = resp.data.data
+        })
+    }
+  },
 }
 </script>
 
 <template>
     <main>
-
-        <div class="container">
+        <div class="container py-4">
+            <AppSearch @perfomSearch="searchCard"/>
+            <AppLoader class="w-100" v-if="store.loading" />
     
-            <div class="container py-4">
-                <AppLoader class="w-100" v-if="store.loading" />
-    
-                <div class="row row-cols-5 g-4" v-else>
-                    <AppCounter class="w-100" />
+            <div class="row row-cols-5 g-3" v-else>
+                <AppCounter class="w-100" />
 
-                    <div class="col" v-for="card in store.cards" :key="card.id">
-                        <AppCard :card="card"/>
-                    </div>
-
+                <div class="col" v-for="card in store.cards" :key="card.id">
+                    <AppCard :card="card"/>
                 </div>
+
             </div>
         </div>
+
 
     </main>
 </template>
@@ -53,6 +72,7 @@ main {
         background-color: white;
         .row {
             justify-content: space-between;
+
             margin-top: 0;
             margin-right: 0;
             margin-left: 0;
@@ -62,8 +82,11 @@ main {
             padding-left: 0;}
 
             .col {
-
+                padding: 0 0.5rem;
+                margin-bottom: 0.5rem;
+                align-items: stretch;
             }
+
         }
     }
 }

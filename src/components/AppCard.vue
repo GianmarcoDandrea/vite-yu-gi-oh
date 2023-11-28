@@ -13,7 +13,7 @@ export default {
         <img :src="card.card_images[0].image_url_small" alt="data[0].name"/>
         <div class="info-text">
             <p class="name">{{ card.name }}</p>
-            <p class="type"> {{ card.frameType }}</p>
+            <p class="type"> {{ card.archetype }}</p>
 
         </div>
         
@@ -26,17 +26,15 @@ export default {
 
 .card {
     margin-bottom: 0.5rem;
+    border: none;
+    background-color: $main_bg_color;
 
     .info-text {
-        background-color: $main_bg_color;
         padding: 0 0.5rem;
 
         .name {
             text-transform: uppercase;
             color: $secondary_text_color;
-        }
-        .type {
-            text-transform: uppercase;
         }
     }
 }
