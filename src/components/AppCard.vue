@@ -1,25 +1,16 @@
 <script>
-import { store } from "../store";
 export default {
 
-    data() {
-        return {
-         store,
-        };
+    props: {
+        card: Object,
     },
-
-    mounted() {
-        console.log()
-    },
-
-    
 };
 </script>
 
 <template>
 
-    <div v-for="card in store.cards" class="info-card text-center d-flex flex-column">
-        <img :src="card.card_images[0].image_url" alt="data[0].name"/>
+    <div class="card text-center d-flex flex-column">
+        <img :src="card.card_images[0].image_url_small" alt="data[0].name"/>
         <div class="info-text">
             <p class="name">{{ card.name }}</p>
             <p class="type"> {{ card.frameType }}</p>
@@ -33,10 +24,9 @@ export default {
 <style lang="scss" scoped>
 @use "../style/partials/variables" as *;
 
-.info-card {
-    width: calc(100% / 5);
+.card {
     margin-bottom: 0.5rem;
-    align-self: stretch;
+
     .info-text {
         background-color: $main_bg_color;
         padding: 0 0.5rem;

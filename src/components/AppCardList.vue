@@ -20,12 +20,14 @@ export default {
         <div class="container">
     
             <div class="container py-4">
-                <AppLoader v-if="store.loading" />
+                <AppLoader class="w-100" v-if="store.loading" />
     
-                <div class="row" v-else>
-                    <AppCounter />
+                <div class="row row-cols-5 g-4" v-else>
+                    <AppCounter class="w-100" />
 
-                    <AppCard/>
+                    <div class="col" v-for="card in store.cards" :key="card.id">
+                        <AppCard :card="card"/>
+                    </div>
 
                 </div>
             </div>
@@ -58,6 +60,10 @@ main {
             & > * {
             padding-right: 0;
             padding-left: 0;}
+
+            .col {
+
+            }
         }
     }
 }
