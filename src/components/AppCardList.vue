@@ -18,9 +18,11 @@ export default {
   methods: {
     searchCard() {
         axios
-        .get(this.store.apiLinkSearch, {
+        .get(this.store.apiLinkArchetypeSearch, {
             params: {
                 archetype:this.store.searchChoice,
+                num:50,
+                offset:0
             }
         })
         .then((resp)=> {
