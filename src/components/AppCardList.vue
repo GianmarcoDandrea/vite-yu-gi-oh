@@ -37,7 +37,7 @@ export default {
 
 <template>
     <main>
-        <div class="container">
+        <div class="container select">
             <AppSearch @perfomSearch="searchCard"/>
         </div>
         <div class="container card-list py-4">
@@ -66,8 +66,11 @@ export default {
 }
 
 main {
-    padding: 3rem 0;
+    padding: 0 0 3rem;
     background-color: #d48f38;
+    .select {
+        padding: 0.3rem 0;
+    }
     .card-list {
         background-color: white;
     }
