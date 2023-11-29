@@ -1,20 +1,14 @@
 <script>
 import { store } from "../store.js";
+import { archetypeList } from "../archetypeList";
 export default {
 
 
   data() {
     return {
-      archetypes: [
-        "Alien",
-        "Ally of Justice",
-        "Ancient Gear",
-        "Destiny HERO",
-        "Elemental HERO",
-        "Magician",
-      ],
 
       store,
+      archetypeList,
     };
   },
 };
@@ -23,7 +17,7 @@ export default {
 <template>
   <select class="form-select w-25" v-model="store.searchChoice" @change="$emit('perfomSearch')">
     <option value="" disabled>Seleziona Un Archetipo</option>
-    <option v-for="(archetype, index) in archetypes" :key="index" :value="archetype" selected>{{ archetype }}</option>
+    <option v-for="(archetype, index) in archetypeList" :key="index" :value="archetype.archetype_name" selected>{{ archetype.archetype_name }}</option>
   </select>
 </template>
 
