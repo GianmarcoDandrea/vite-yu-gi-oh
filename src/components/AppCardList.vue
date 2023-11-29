@@ -21,7 +21,7 @@ export default {
         .get(this.store.apiLinkArchetypeSearch, {
             params: {
                 archetype:this.store.searchChoice,
-                num:50,
+                num:100,
                 offset:0
             }
         })
@@ -78,7 +78,7 @@ main {
 
     .container {
         .row {
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: stretch;
             margin-top: 0;
             margin-right: 0;
