@@ -12,11 +12,13 @@ export default {
       store,
     };
   },
+
   components: { AppCard, AppLoader, AppCounter, AppSearch},
 
 
   methods: {
     searchCard() {
+        this.store.loading = true;
         axios
         .get(this.store.apiLinkArchetypeSearch, {
             params: {
@@ -25,10 +27,13 @@ export default {
                 offset:0
             }
         })
+
         .then((resp)=> {
             this.store.cards = [];
             console.log(resp.data.data);
             this.store.cards = resp.data.data;
+            this.store.loading = false;
+
         })
     }
   },
